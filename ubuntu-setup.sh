@@ -32,3 +32,6 @@ rm jetbrains-toolbox.tar.gz
 
 # SSH
 sudo apt install openssh-server
+
+# Terminator
+sudo apt install terminator
