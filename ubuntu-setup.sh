@@ -4,7 +4,7 @@
 sudo apt-get update
 
 # Get tools
-sudo apt-get install wget gpg
+sudo apt-get install -y wget gpg
 
 # Install Sublime Text
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/sublimehq-archive.gpg > /dev/null
@@ -17,7 +17,7 @@ wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > pa
 sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
 sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
 rm -f packages.microsoft.gpg
-sudo apt install code
+sudo apt install -y code
 
 # Install Jetbrains Toolbox
 sudo apt-get install -y libfuse2 # Have to get libfuse2 for AppImage
@@ -31,7 +31,7 @@ rm -r $DIR
 rm jetbrains-toolbox.tar.gz
 
 # SSH
-sudo apt install openssh-server
+sudo apt install -y openssh-server
 
 # Terminator
-sudo apt install terminator
+sudo apt install -y terminator
