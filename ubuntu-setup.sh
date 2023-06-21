@@ -20,6 +20,7 @@ rm -f packages.microsoft.gpg
 sudo apt install code
 
 # Install Jetbrains Toolbox
+sudo apt-get install -y libfuse2 # Have to get libfuse2 for AppImage
 wget -cO jetbrains-toolbox.tar.gz "https://data.services.jetbrains.com/products/download?platform=linux&code=TBA"
 tar -xzf jetbrains-toolbox.tar.gz
 DIR=$(find . -maxdepth 1 -type d -name jetbrains-toolbox-\* -print | head -n1)
