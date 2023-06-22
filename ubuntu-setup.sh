@@ -55,4 +55,4 @@ printf %"$COLUMNS"s |tr " " "-" # Horizontal line
 
 # NFS Setup
 cd "$PARENT_PATH"
-bash nfs-mount.sh
+sudo bash nfs-mount.sh
