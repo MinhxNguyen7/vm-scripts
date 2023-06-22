@@ -21,5 +21,6 @@ echo "Downloading Plex..."
 curl -sS https://downloads.plex.tv/plex-keys/PlexSign.key | gpg --dearmor | sudo tee /usr/share/keyrings/plex.gpg > /dev/null 
 echo "deb [signed-by=/usr/share/keyrings/plex.gpg] https://downloads.plex.tv/repo/deb public main" > /etc/apt/sources.list.d/plexmediaserver.list
 echo "Installing Plex"
-apt update && apt install plexmediaserver -y
+apt update
+apt install plexmediaserver -y
 printf %"$COLUMNS"s |tr " " "-" # Horizontal line
