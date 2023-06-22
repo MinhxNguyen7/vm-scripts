@@ -23,7 +23,3 @@ echo "deb [signed-by=/usr/share/keyrings/plex.gpg] https://downloads.plex.tv/rep
 echo "Installing Plex"
 apt update && apt install plexmediaserver -y
 printf %"$COLUMNS"s |tr " " "-" # Horizontal line
-
-# Done
-echo "Done. Rebooting."
-reboot
