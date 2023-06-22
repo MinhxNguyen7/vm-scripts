@@ -44,7 +44,7 @@ if [ ! -z $NFS_IP ]; then # If not empty
   read -p "Enter mount point: " NFS_MOUNT
 
   sudo mkdir $NFS_MOUNT
-  sudo echo "$NFS_IP:/$NFS_NAME $NFS_MOUNT nfs defaults 0 0" >> "/etc/fstab"
+  sudo echo "$NFS_IP:/$NFS_NAME $NFS_MOUNT nfs defaults 0 0" | sudo tee -a "/etc/fstab"
   sudo mount $NFS_MOUNT
 fi
 
