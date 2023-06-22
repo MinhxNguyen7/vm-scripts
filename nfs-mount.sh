@@ -11,3 +11,4 @@ if [ ! -z $NFS_IP ]; then # If not empty
   sudo echo "$NFS_IP:/$NFS_NAME $NFS_MOUNT nfs defaults 0 0" | sudo tee -a "/etc/fstab"
   sudo mount $NFS_MOUNT
 fi
+printf %"$COLUMNS"s |tr " " "-"
