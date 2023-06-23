@@ -58,7 +58,7 @@ cd "$PARENT_PATH"
 sudo bash nfs-mount.sh
 
 # TailScale optional
-while [true]; do
+while true; do
     read -p "Install TailScale? (Y/n): " INSTALL_TAILSCALE
     echo ""
     if [$INSTALL_TAILSCALE == "Y"]; then
