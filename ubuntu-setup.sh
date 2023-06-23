@@ -9,7 +9,7 @@ echo "Preparing..."
 sudo apt-get update
 
 # Get tools
-sudo apt-get install -y wget gpg
+sudo apt-get install -y wget gpg curl
 
 printf %"$COLUMNS"s |tr " " "-" # Horizontal line
 
