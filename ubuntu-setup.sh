@@ -77,12 +77,12 @@ printf %"$COLUMNS"s |tr " " "-" # Horizontal line
 while true; do
     read -p "Install web development tools (NodeJS, NPM, pnpm)? (Y/n): " INSTALL_WEB
     echo ""
-    if [[ "$INSTALL_TAILSCALE" == "Y" ]]; then
+    if [[ "$INSTALL_WEB" == "Y" ]]; then
         sudo apt install nodejs npm
         sudo npm i -g pnpm
         break
     fi
-    if [[ "$INSTALL_TAILSCALE" == "n" ]]; then
+    if [[ "$INSTALL_WEB" == "n" ]]; then
         break
     echo "Invalid input. Valid inputs: Y for yes, n for no"
     fi
