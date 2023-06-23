@@ -63,6 +63,7 @@ while true; do
     echo ""
     if [[ "$INSTALL_TAILSCALE" == "Y" ]]; then
         curl -fsSL https://tailscale.com/install.sh | sh
+        sudo tailscale up # Start TailScale
         break
     fi
     if [[ "$INSTALL_TAILSCALE" == "n" ]]; then
