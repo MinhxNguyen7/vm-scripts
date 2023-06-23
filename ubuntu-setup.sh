@@ -61,11 +61,11 @@ sudo bash nfs-mount.sh
 while true; do
     read -p "Install TailScale? (Y/n): " INSTALL_TAILSCALE
     echo ""
-    if [$INSTALL_TAILSCALE == "Y"]; then
+    if ["$INSTALL_TAILSCALE" = "Y"]; then
         curl -fsSL https://tailscale.com/install.sh | sh
         break
     fi
-    if [$INSTALL_TAILSCALE == "n"]; then
+    if ["$INSTALL_TAILSCALE" = "n"]; then
         break
     echo "Invalid input. Valid inputs: Y for yes, n for no"
     fi
