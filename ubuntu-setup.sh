@@ -64,7 +64,9 @@ while [true]; do
     if [$INSTALL_TAILSCALE == "Y"]
         curl -fsSL https://tailscale.com/install.sh | sh
         break
+    fi
     if [$INSTALL_TAILSCALE == "n"]
         break
     echo "Invalid input. Valid inputs: Y for yes, n for no"
+    fi
 done
