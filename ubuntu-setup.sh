@@ -56,3 +56,15 @@ printf %"$COLUMNS"s |tr " " "-" # Horizontal line
 # NFS Setup
 cd "$PARENT_PATH"
 sudo bash nfs-mount.sh
+
+# TailScale optional
+while [true]; do
+    read -p "Install TailScale? (Y/n): " INSTALL_TAILSCALE
+    echo ""
+    if [$INSTALL_TAILSCALE == "Y"]
+        curl -fsSL https://tailscale.com/install.sh | sh
+        break
+    if [$INSTALL_TAILSCALE == "n"]
+        break
+    echo "Invalid input. Valid inputs: Y for yes, n for no"
+done
