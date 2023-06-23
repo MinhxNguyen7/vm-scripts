@@ -79,7 +79,8 @@ while true; do
     echo ""
     if [[ "$INSTALL_WEB" == "Y" ]]; then
         sudo apt install nodejs npm
-        sudo npm i -g pnpm
+        sudo npm i -g pnpm n
+        sudo n stable
         break
     fi
     if [[ "$INSTALL_WEB" == "n" ]]; then
