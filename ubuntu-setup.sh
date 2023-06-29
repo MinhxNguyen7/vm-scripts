@@ -30,19 +30,6 @@ rm -f packages.microsoft.gpg
 sudo apt install -y code
 printf %"$COLUMNS"s |tr " " "-" # Horizontal line
 
-# Install Jetbrains Toolbox
-echo "Installing Jetbrains Toolbox"
-sudo apt-get install -y libfuse2 # Have to get libfuse2 for AppImage
-wget -cO jetbrains-toolbox.tar.gz "https://data.services.jetbrains.com/products/download?platform=linux&code=TBA"
-tar -xzf jetbrains-toolbox.tar.gz
-DIR=$(find . -maxdepth 1 -type d -name jetbrains-toolbox-\* -print | head -n1)
-cd $DIR
-./jetbrains-toolbox
-cd ..
-rm -r $DIR
-rm jetbrains-toolbox.tar.gz
-printf %"$COLUMNS"s |tr " " "-" # Horizontal line
-
 # SSH
 echo "Installing OpenSSH Server"
 sudo apt install -y openssh-server
