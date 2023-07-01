@@ -2,7 +2,7 @@
 
 echo "Setting up NFS share..."
 sudo apt install -y nfs-common
-read -p "Enter NFS share IP (leave blank to skip): " NFS_IP
+read -p "Enter NFS share IP or hostname (leave blank to skip): " NFS_IP
 if [ ! -z $NFS_IP ]; then # If not empty
   read -p "Enter NFS share name (without slash): " NFS_NAME
   read -p "Enter mount point: " NFS_MOUNT
