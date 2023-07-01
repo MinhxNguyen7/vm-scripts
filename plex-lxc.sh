@@ -24,3 +24,6 @@ echo "Installing Plex"
 apt update
 apt install plexmediaserver -y
 printf %"$COLUMNS"s |tr " " "-" # Horizontal line
+
+# Tailscale
+sudo sh tailscale.sh
