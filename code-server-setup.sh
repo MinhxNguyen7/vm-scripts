@@ -13,10 +13,6 @@ sudo apt-get install -y wget gpg curl
 
 printf %"$COLUMNS"s |tr " " "-" # Horizontal line
 
-# NFS Setup
-cd "$PARENT_PATH"
-sudo bash nfs-mount.sh
-
 # TailScale optional
 read -p "Install TailScale? (Y/n): " INSTALL_TAILSCALE
 echo ""
@@ -28,6 +24,10 @@ then
 else
     echo "Skipping TailScale installation"
 fi
+
+# NFS Setup
+cd "$PARENT_PATH"
+sudo bash nfs-mount.sh
 
 # Web development tools optional
 read -p "Install web development tools (NodeJS, NPM, pnpm)? (Y/n): " INSTALL_WEB
