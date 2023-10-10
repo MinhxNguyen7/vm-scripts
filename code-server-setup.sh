@@ -44,4 +44,5 @@ fi
 
 # Install VSCode
 sudo bash install-vscode.sh
+code tunnel service install --accept-server-license-terms --disable-telemetry
 printf %"$COLUMNS"s |tr " " "-" # Horizontal line
