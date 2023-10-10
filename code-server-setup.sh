@@ -43,7 +43,5 @@ if [[ "$INSTALL_WEB" =~ ^([yY][eE][sS]|[yY])$ ]]
 fi
 
 # Install VSCode
-echo "Installing VSCode"
-sudo snap install code --classic
-code tunnel service install --accept-server-license-terms --disable-telemetry
+sudo bash install-vscode.sh
 printf %"$COLUMNS"s |tr " " "-" # Horizontal line
