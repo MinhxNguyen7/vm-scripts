@@ -13,60 +13,34 @@ sudo apt-get install -y wget gpg curl
 
 printf %"$COLUMNS"s |tr " " "-" # Horizontal line
 
-# Install Sublime Text
-echo "Installing Sublime Text"
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/sublimehq-archive.gpg > /dev/null
-echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
-sudo apt-get install apt-transport-https
-sudo apt-get install sublime-text
-printf %"$COLUMNS"s |tr " " "-" # Horizontal line
-
-# SSH
-echo "Installing OpenSSH Server"
-sudo apt install -y openssh-server
-printf %"$COLUMNS"s |tr " " "-" # Horizontal line
-
-# Terminator
-echo "Installing Terminator"
-sudo apt install -y terminator
-printf %"$COLUMNS"s |tr " " "-" # Horizontal line
-
 # NFS Setup
 cd "$PARENT_PATH"
 sudo bash nfs-mount.sh
 
 # TailScale optional
-while true; do
-    read -p "Install TailScale? (Y/n): " INSTALL_TAILSCALE
-    echo ""
-    if [[ "$INSTALL_TAILSCALE" == "Y" ]]; then
+read -p "Install TailScale? (Y/n): " INSTALL_TAILSCALE
+echo ""
+if [[ "$INSTALL_TAILSCALE" =~ ^([yY][eE][sS]|[yY])$ ]]
+    then
         curl -fsSL https://tailscale.com/install.sh | sh
         sudo tailscale up # Start TailScale
-        break
-    fi
-    if [[ "$INSTALL_TAILSCALE" == "n" ]]; then
-        break
-    echo "Invalid input. Valid inputs: Y for yes, n for no"
-    fi
-done
-printf %"$COLUMNS"s |tr " " "-" # Horizontal line
+        printf %"$COLUMNS"s |tr " " "-" # Horizontal line
+    else
+        echo "Skipping TailScale installation"
+fi
 
 # Web development tools optional
-while true; do
-    read -p "Install web development tools (NodeJS, NPM, pnpm)? (Y/n): " INSTALL_WEB
-    echo ""
-    if [[ "$INSTALL_WEB" == "Y" ]]; then
+read -p "Install web development tools (NodeJS, NPM, pnpm)? (Y/n): " INSTALL_WEB
+echo ""
+if [[ "$INSTALL_WEB" =~ ^([yY][eE][sS]|[yY])$ ]]
+    then
         sudo apt install nodejs npm
         sudo npm i -g pnpm n
         sudo n stable
-        break
-    fi
-    if [[ "$INSTALL_WEB" == "n" ]]; then
-        break
-    echo "Invalid input. Valid inputs: Y for yes, n for no"
-    fi
-done
-printf %"$COLUMNS"s |tr " " "-" # Horizontal line
+        printf %"$COLUMNS"s |tr " " "-" # Horizontal line
+    else
+        echo "Skipping web development tools installation"
+fi
 
 # Install VSCode
 echo "Installing VSCode"
